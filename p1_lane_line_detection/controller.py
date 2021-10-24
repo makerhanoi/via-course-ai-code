@@ -48,4 +48,5 @@ def calculate_control_signal(img):
     cv2.imshow("Result", img_birdview)
     cv2.waitKey(1)
 
+    # Trả về góc lái và tốc độ
     return 0, 0

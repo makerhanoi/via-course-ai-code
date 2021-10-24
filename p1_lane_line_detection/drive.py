@@ -17,7 +17,8 @@ async def echo(websocket, path):
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
         # Tính toán góc lái và tốc độ
-        throttle, steering_angle = calculate_control_signal(image.copy())
+        # Ở phần này ta chưa sử dụng kết quả trả về
+        throttle, steering_angle = calculate_control_signal(image)
 
 async def main():
     async with websockets.serve(echo, "0.0.0.0", 4567, ping_interval=None):
