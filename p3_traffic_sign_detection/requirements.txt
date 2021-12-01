@@ -1,4 +1,4 @@
-numpy==1.19.3
-opencv-python
+numpy
+opencv-python>=4.5.4
 websockets
 Pillow

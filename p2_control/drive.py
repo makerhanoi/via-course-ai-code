@@ -6,9 +6,9 @@ import cv2
 import numpy as np
 import base64
 from io import BytesIO
-from controller import calculate_control_signal
+from lane_line_detection import calculate_control_signal
 
-async def echo(websocket, path):
+async def process_image(websocket, path):
     async for message in websocket:
         # Nhận hình ảnh từ giả lập
         data = json.loads(message)
@@ -26,7 +26,7 @@ async def echo(websocket, path):
         
 
 async def main():
-    async with websockets.serve(echo, "0.0.0.0", 4567, ping_interval=None):
+    async with websockets.serve(process_image, "0.0.0.0", 4567, ping_interval=None):
         await asyncio.Future()  # run forever
 
 asyncio.run(main())
